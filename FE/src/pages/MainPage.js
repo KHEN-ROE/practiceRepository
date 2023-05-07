@@ -1,4 +1,4 @@
-import {BrowserRouter, Route, Routes, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 
 const MainPage = () => {

@@ -1,4 +1,3 @@
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -31,7 +30,7 @@ const RegisterPage = () => {
       navigate('/login');
     } catch (error) {
       console.error(error);
-      alert('회원가입 중 오류가 발생했습니다.');
+      alert('이미 존재하는 아이디입니다.');
     }
   };
 

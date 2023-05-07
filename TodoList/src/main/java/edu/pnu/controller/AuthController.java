@@ -35,7 +35,7 @@ public class AuthController {
 
 		// JWT 디코딩 및 "aud" 클레임 값 출력
 		SecretKey secretKey = Keys
-				.hmacShaKeyFor("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".getBytes(StandardCharsets.UTF_8));
+				.hmacShaKeyFor("secreykey".getBytes(StandardCharsets.UTF_8));
 		JwtParser parser = Jwts.parserBuilder().setSigningKey(secretKey).build();
 		Jws<Claims> jws = parser.parseClaimsJws(JWT);
 		String audClaim = jws.getBody().get("aud", String.class);
@@ -58,8 +58,8 @@ public class AuthController {
 		Instant expiry = now.plus(1, ChronoUnit.HOURS);
 
 		SecretKey secretKey = Keys
-				.hmacShaKeyFor("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".getBytes(StandardCharsets.UTF_8));
-		final String AUDIENCE = "1050135280688-bgoki6c46rsshsbm68ru5mh075qnhlvn.apps.googleusercontent.com";
+				.hmacShaKeyFor("secretkey".getBytes(StandardCharsets.UTF_8));
+		final String AUDIENCE = "client_id";
 
 		String jwt = Jwts.builder().setSubject(email)
 				.claim("name", name) 

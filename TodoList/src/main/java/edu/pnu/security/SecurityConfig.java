@@ -62,8 +62,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
       
 //    @Bean
 //    JwtDecoder jwtDecoder() {
-//        SecretKey secretKey = Keys.hmacShaKeyFor("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".getBytes(StandardCharsets.UTF_8));
-//        final String AUDIENCE = "1050135280688-bgoki6c46rsshsbm68ru5mh075qnhlvn.apps.googleusercontent.com";
+//        SecretKey secretKey = Keys.hmacShaKeyFor("your_own_secretkey".getBytes(StandardCharsets.UTF_8));
+//        final String AUDIENCE = "your_own_client_id";
 //
 //        
 //        
@@ -80,7 +80,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
     @Bean
     JwtDecoder jwtDecoder() {
-        SecretKey secretKey = Keys.hmacShaKeyFor("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".getBytes(StandardCharsets.UTF_8));
+        SecretKey secretKey = Keys.hmacShaKeyFor("your_own_secreykey".getBytes(StandardCharsets.UTF_8));
         
         NimbusJwtDecoder jwtDecoder = NimbusJwtDecoder.withSecretKey(secretKey).build();
 
@@ -90,7 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         	@Override
             public OAuth2TokenValidatorResult validate(Jwt jwt) {
                 List<String> audList = jwt.getClaim("aud");
-                String expectedAud = "1050135280688-bgoki6c46rsshsbm68ru5mh075qnhlvn.apps.googleusercontent.com";
+                String expectedAud = "your_own_client_id";
                 if (audList != null && audList.contains(expectedAud)) {
                     return OAuth2TokenValidatorResult.success();
                 } else {

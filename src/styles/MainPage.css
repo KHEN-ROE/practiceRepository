@@ -1,0 +1,10 @@
+.maindiv1{
+    /* background-color: aquamarine; */
+}
+
+.maindiv2 {
+    /* background-color: aliceblue; */
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+}

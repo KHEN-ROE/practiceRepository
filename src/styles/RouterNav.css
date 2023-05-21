@@ -1,0 +1,8 @@
+.rnavdiv1 {
+    float: right;
+}
+
+.rnavdiv1 > span {
+    padding: 20px;
+    cursor: pointer;
+}

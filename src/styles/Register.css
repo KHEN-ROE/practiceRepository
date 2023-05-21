@@ -1,0 +1,16 @@
+.registerdiv1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: 100vh;
+    /* background-color: aliceblue; */
+}
+
+.registerform1 {
+    display: flex;
+    flex-direction: column;
+    /* background-color: rgb(143, 175, 204); */
+}
+

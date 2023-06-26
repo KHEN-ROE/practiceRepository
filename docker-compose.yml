@@ -1,0 +1,53 @@
+version: '3'
+services:
+  springBoot-app:
+    container_name: spring-boot-app
+    image: spring-boot-app
+    restart: always
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_HOST: mysqldb
+      MYSQL_USER: ken
+      MYSQL_PASSWORD: 1234
+      MYSQL_PORT: 3306
+    networks:
+      - mynetwork
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    volumes:
+      - C:\Users\KEN ROE\Desktop\db:\var\lib\mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: ship
+      MYSQL_USER: ken
+      MYSQL_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
+    networks:
+      - mynetwork
+
+  react-app:
+    container_name: react-app
+    image: react-app
+    build: ../../fe  # 리액트 앱의 Dockerfile 경로
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+
+  flask-app:
+    container_name: flask-app
+    image: flask-app
+    build: ../../da  # 플라스크 앱의 Dockerfile 경로
+    ports:
+      - "5000:5000"
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

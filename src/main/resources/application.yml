@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysqldb:3306/ship?serverTimezone=Asia/Seoul
+#    url: jdbc:mysql://db:3306/ship?serverTimezone=Asia/Seoul
+
+    username: ken
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+      dialect: org.hibernate.dialect.MySQL8Dialect
+    defer-datasource-initialization: true
+    open-in-view: true
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 1050135280688-bgoki6c46rsshsbm68ru5mh075qnhlvn.apps.googleusercontent.com
+            client-secret: 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
+            scope: profile, email
+
+jwt:
+  secret: shipsupply.noh.kim.kim
+
+
+
+
